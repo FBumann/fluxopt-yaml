@@ -1,12 +1,12 @@
-# Contributing to fluxopt-yaml
+# Contributing to fluxopt_yaml
 
 Contributions are welcome — bug reports, code, docs, examples.
 
 ## Setup
 
 ```bash
-git clone https://github.com/FBumann/fluxopt-yaml.git
-cd fluxopt-yaml
+git clone https://github.com/FBumann/fluxopt_yaml.git
+cd fluxopt_yaml
 uv sync --group dev
 uv run pre-commit install
 uv run pytest -v

@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: Documentation
-    url: https://fbumann.github.io/fluxopt-yaml/
+    url: https://fbumann.github.io/fluxopt_yaml/
     about: "User guide and API reference"
   - name: fluxopt documentation
     url: https://fbumann.github.io/fluxopt/

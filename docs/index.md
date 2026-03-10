@@ -64,4 +64,4 @@ converters:
 - [User Guide](guide.md) — full YAML format reference
 - [API Reference](api.md)
 - [fluxopt documentation](https://fbumann.github.io/fluxopt/)
-- [Source code](https://github.com/FBumann/fluxopt-yaml)
+- [Source code](https://github.com/FBumann/fluxopt_yaml)

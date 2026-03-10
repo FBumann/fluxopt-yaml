@@ -1,7 +1,7 @@
-site_name: fluxopt-yaml
+site_name: fluxopt_yaml
 site_description: Declarative YAML + CSV model definition for fluxopt
-repo_url: https://github.com/FBumann/fluxopt-yaml
-repo_name: FBumann/fluxopt-yaml
+repo_url: https://github.com/FBumann/fluxopt_yaml
+repo_name: FBumann/fluxopt_yaml
 
 nav:
   - Home: index.md
