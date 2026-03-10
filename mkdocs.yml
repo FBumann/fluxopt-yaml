@@ -5,6 +5,7 @@ repo_name: FBumann/fluxopt-yaml
 
 nav:
   - Home: index.md
+  - API Reference: api.md
 
 theme:
   name: material
