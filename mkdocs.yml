@@ -1,0 +1,95 @@
+site_name: fluxopt-yaml
+site_description: Declarative YAML + CSV model definition for fluxopt
+repo_url: https://github.com/FBumann/fluxopt-yaml
+repo_name: FBumann/fluxopt-yaml
+
+nav:
+  - Home: index.md
+
+theme:
+  name: material
+  language: en
+
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+  font:
+    text: Roboto
+    code: Fira Code
+
+  icon:
+    repo: fontawesome/brands/github
+
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.select
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      use_pygments: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+
+plugins:
+  - search
+  - include-markdown
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            docstring_section_style: table
+            members_order: source
+            show_if_no_docstring: false
+            heading_level: 1
+            show_root_heading: true
+            show_signature: true
+            show_signature_annotations: true
+            separate_signature: true
+            line_length: 80
+            modernize_annotations: true
+            merge_init_into_class: true
+
+extra_css:
+  - stylesheets/extra.css
+
+watch:
+  - src/fluxopt_yaml
+  - docs

@@ -1,0 +1,123 @@
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fluxopt-yaml"
+dynamic = ["version"]
+description = "Declarative YAML + CSV model definition for fluxopt."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [
+    { name = "Felix Bumann", email = "felixbumann387@gmail.com" },
+]
+maintainers = [
+    { name = "Felix Bumann", email = "felixbumann387@gmail.com" },
+]
+keywords = ["fluxopt", "yaml", "configuration", "energy systems"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering",
+]
+dependencies = [
+    "fluxopt>=0.0.1rc0",
+    "pyyaml>=6.0",
+]
+
+[project.urls]
+repository = "https://github.com/FBumann/fluxopt-yaml"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/fluxopt_yaml"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/fluxopt_yaml/", "LICENSE", "README.md"]
+
+[dependency-groups]
+dev = [
+    "mypy==1.19.1",
+    "pre-commit==4.5.1",
+    "pytest==9.0.2",
+    "pytest-cov==7.0.0",
+    "ruff==0.15.5",
+    "types-PyYAML>=6.0",
+]
+docs = [
+    "mike==2.1.4",
+    "mkdocs==1.6.1",
+    "mkdocs-include-markdown-plugin==7.2.1",
+    "mkdocs-material==9.7.4",
+    "mkdocs-minify-plugin==0.8.0",
+    "mkdocstrings-python==2.0.3",
+    "pygments==2.19.2",
+    "pymdown-extensions==10.21",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    "E",     # pycodestyle errors
+    "F",     # Pyflakes
+    "W",     # pycodestyle warnings
+    "I",     # isort
+    "B",     # flake8-bugbear
+    "N",     # pep8-naming
+    "UP",    # pyupgrade
+    "FA",    # flake8-future-annotations
+    "TC",    # flake8-type-checking
+    "SIM",   # flake8-simplify
+    "RUF",   # Ruff-specific rules
+    "PERF",  # perflint
+    "C4",    # flake8-comprehensions
+    "PIE",   # flake8-pie
+    "RET",   # flake8-return
+    "FLY",   # flynt (f-string)
+    "FURB",  # refurb
+    "T20",   # flake8-print
+    "PLC",   # pylint conventions
+    "PLE",   # pylint errors
+]
+ignore = [
+    "E501",     # line too long (handled by formatter)
+    "RET504",   # unnecessary assignment before return
+    "PLC0415",  # import not at top level (used for circular import avoidance)
+]
+extend-fixable = ["B", "SIM", "RUF", "C4", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"]
+
+[tool.ruff.format]
+quote-style = "single"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint.pyupgrade]
+keep-runtime-typing = false
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[[tool.mypy.overrides]]
+module = [
+    "fluxopt.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+pythonpath = ["tests"]
